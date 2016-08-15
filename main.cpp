@@ -22,27 +22,6 @@ float get_swap_usage(long long total_swap, long long used_swap)
 	return (100*total_swap)/used_swap;
 }
 
-std::string get_bar_chart(float usage)
-{
-	std::string chart{"["};
-	int bars = usage*20/100;
-	for(int i=0; i<22;i++)
-	{
-		if(i<bars)
-		{
-			chart += "|";
-		}
-		else
-		{
-			chart += " ";
-		}
-
-	}
-	chart += "]";
-	return chart;
-}
-
-
 int main()
 {
 	struct sysinfo info;
