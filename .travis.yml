@@ -4,3 +4,5 @@ compiler:
 - gcc++
 os:
 - linux
+install:
+- mkdir build && cd build && cmake ../ && make && make test
