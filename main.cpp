@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-float get_memory_usage(long long total_mem, long long used_mem)
+float get_memory_usage(const long long total_mem, const long long used_mem)
 {
 	if(used_mem == 0)
 	{
@@ -12,7 +12,7 @@ float get_memory_usage(long long total_mem, long long used_mem)
  	return  (100*used_mem)/total_mem;
 }
 
-float get_swap_usage(long long total_swap, long long used_swap)
+float get_swap_usage(const long long total_swap, const long long used_swap)
 {
 	if(used_swap == 0)
 	{
@@ -27,15 +27,15 @@ int main()
 	struct sysinfo info;
 
 	sysinfo(&info);
-	long long total_mem = info.totalram;
-	long long total_swap = info.totalswap;
+	const long long total_mem = info.totalram;
+	const long long total_swap = info.totalswap;
 
-	long long used_mem = info.totalram - info.freeram;
-	long long used_swap = info.totalswap - info.freeswap;
+	const long long used_mem = info.totalram - info.freeram;
+	const long long used_swap = info.totalswap - info.freeswap;
 
 
-	float memory_usage = get_memory_usage(total_mem, used_mem);
-	float swap_usage = get_swap_usage(total_swap, used_swap);
+	const float memory_usage = get_memory_usage(total_mem, used_mem);
+	const float swap_usage = get_swap_usage(total_swap, used_swap);
 
 	std::cout.setf(std::ios_base::fixed, std::ios_base::floatfield);
 	std::cout.precision(2);
